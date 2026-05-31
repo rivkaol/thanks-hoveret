@@ -119,12 +119,14 @@
 
     .wa-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0;
+      grid-template-columns: 1fr; /* תמונות רחבות (1000x800) יופיעו אחת מתחת לשנייה לקריאות מקסימלית */
+      gap: 24px;
+      margin: 32px auto;
+      max-width: 650px; /* תוחם את הרוחב כדי שלא יהיה מוגזם במסכי מחשב */
     }
     .wa-grid img {
       width: 100%;
+      height: auto;
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
     }
@@ -229,7 +231,7 @@
       .nine-grid { gap: 8px; }
       .book-preview-grid { grid-template-columns: repeat(2, 1fr); }
       .book-preview-grid img:nth-child(3) { display: none; } /* Hide 3rd on mobile if needed, or keep 2 rows */
-      .wa-grid { grid-template-columns: 1fr; max-width: 340px; margin-left: auto; margin-right: auto; }
+      .wa-grid { max-width: 100%; margin-left: auto; margin-right: auto; }
       .offer-card { padding: 40px 20px; }
       .price { font-size: 56px; }
       .btn-primary { font-size: 22px; min-height: 64px; }
@@ -258,7 +260,7 @@
 <!-- מקטע 2 - תמונה שלך והיכרות -->
 <section class="section fade-in">
   <!-- תמונה גדולה שלך במטבח עם הספר ביד -->
-  <img src="https://placehold.co/800x600/1B4D3E/FFFFFF?text=Rivka+in+Kitchen+with+Book" alt="רבקה במטבח עם הספר" class="hero-img">
+  <img src="me.jpg" alt="רבקה במטבח עם הספר" class="hero-img">
   
   <div class="story-text">
     <h2 class="icon-svg" style="margin-bottom: 24px;">
@@ -278,7 +280,7 @@
 <!-- מקטע 3 - תמונות אוכל -->
 <section class="section bg-white fade-in text-center">
   <!-- קולאז' של תמונה אחת גדולה -->
-  <img src="https://placehold.co/800x800/2C6E5A/FFFFFF?text=Recipe+Collage" alt="קולאז' מתכונים" class="hero-img" style="margin-bottom: 32px;">
+  <img src="kolag.jpg" alt="קולאז' מתכונים" class="hero-img" style="margin-bottom: 32px;">
   
   <div class="story-text" style="font-size: 24px; font-weight: 500;">
     <p style="color: var(--primary-green); font-weight: 800; font-size: 28px; margin-bottom: 24px;">אלו המתכונים שאני חוזרת אליהם שוב ושוב</p>
@@ -310,7 +312,7 @@
 <!-- מקטע 4 - מחיר ראשון -->
 <section class="section fade-in">
   <!-- מוקאפ גדול של הספר על שולחן במטבח -->
-  <img src="https://placehold.co/800x500/D4AF37/FFFFFF?text=Book+Mockup+on+Kitchen+Table" alt="מוקאפ של הספר" class="hero-img">
+  <img src="mokup" alt="מוקאפ של הספר" class="hero-img">
   
   <div class="offer-card" id="offer1">
     <div class="offer-badge icon-svg">
@@ -377,9 +379,9 @@
   
   <!-- 3-4 צילומי מסך אמיתיים מתוך הספר -->
   <div class="book-preview-grid">
-    <img src="https://placehold.co/400x560/FDFBF7/1B4D3E?text=Table+of+Contents" alt="תוכן עניינים">
-    <img src="https://placehold.co/400x560/FDFBF7/1B4D3E?text=Recipe+Page+1" alt="עמוד מתכון">
-    <img src="https://placehold.co/400x560/FDFBF7/1B4D3E?text=Recipe+Page+2" alt="עמוד נוסף">
+    <img src="t.jpg" alt="תוכן עניינים">
+    <img src="r.jpg" alt="עמוד מתכון">
+    <img src="l.jpg" alt="עמוד נוסף">
   </div>
 </section>
 
@@ -392,17 +394,14 @@
   
   <!-- 3 צילומי מסך של וואטסאפ -->
   <div class="wa-grid">
-    <img src="https://placehold.co/400x800/e5ddd5/1B4D3E?text=WhatsApp+Screenshot+1" alt="עדות וואטסאפ 1">
-    <img src="https://placehold.co/400x800/e5ddd5/1B4D3E?text=WhatsApp+Screenshot+2" alt="עדות וואטסאפ 2">
-    <img src="https://placehold.co/400x800/e5ddd5/1B4D3E?text=WhatsApp+Screenshot+3" alt="עדות וואטסאפ 3">
+    <img src="1.jpg" alt="עדות וואטסאפ 1">
+    <img src="2.jpg" alt="עדות וואטסאפ 2">
+    <img src="3.jpg" alt="עדות וואטסאפ 3">
   </div>
 </section>
 
 <!-- מקטע 8 - סגירה -->
 <section class="section fade-in text-center">
-  <!-- התמונה הכי מעוררת תיאבון שיש לך -->
-  <img src="https://placehold.co/800x600/1B4D3E/FFFFFF?text=Wow+Dessert+Photo" alt="תמונה מנצחת של קינוח" class="hero-img" style="margin-bottom: 40px;">
-  
   <h2 style="font-size: 28px; line-height: 1.4; margin-bottom: 32px;">
     אם גם לך חשוב להכין אוכל טעים,<br>
     בלי גלוטן ובלי סוכר,<br>
