@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>המטבח הבריא שלי - ספר מתכונים</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Rubik Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-green': '#1B4D3E', 
+                        'brand-green-light': '#2C6E5A',
+                        'brand-gold': '#D4AF37',
+                        'brand-gold-light': '#E5C565',
+                        'brand-cream': '#FDFBF7',
+                        'text-dark': '#333333',
+                        'text-muted': '#4A5568',
+                    },
+                    boxShadow: {
+                        'soft': '0 8px 32px rgba(27, 77, 62, 0.08)',
+                        'gold': '0 4px 15px rgba(212, 175, 55, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* מניעת גלילה אופקית (תזוזות לצדדים) */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+            background-color: var(--brand-cream);
+        }
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: #FDFBF7; /* bg-cream */
+            color: #333333; /* text-dark */
+            line-height: 1.75;
+        }
+
+        /* עיצוב כפתור זהב ראשי */
+        .btn-gold {
+            background: linear-gradient(135deg, #FCE38A 0%, #D4AF37 50%, #997B09 100%);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #FDECA6 0%, #E5C565 50%, #B39110 100%);
+        }
+
+        /* סגנון Glassmorphism לכרטיסיות */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 216, 202, 0.5); /* גבול עדין */
+            box-shadow: 0 8px 32px rgba(27, 77, 62, 0.05);
+        }
+        
+        /* אייקונים ברשימות */
+        .list-icon {
+            color: #1B4D3E; /* ירוק מותג */
+            flex-shrink: 0;
+            margin-top: 4px;
+            font-size: 1.25rem;
+        }
+        
+        /* כותרות משנה בולטות (Eyebrow) */
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.875rem; /* 14px */
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #D4AF37;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 4px 16px;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        /* מחיר */
+        .price-strike {
+            position: relative;
+            display: inline-block;
+        }
+        .price-strike::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #ef4444; /* אדום למחיקה */
+            transform: translateY(-50%) rotate(-5deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- פס עליון -->
+<div class="bg-[#1B4D3E] text-white text-center py-4 px-4 border-b border-[#2C6E5A] shadow-md">
+    <p class="font-medium flex items-center justify-center gap-2 text-base md:text-lg">
+        <i class="ph ph-confetti text-2xl text-[#D4AF37]"></i>
+        <span><strong>החוברת כבר בדרך אלייך!</strong></span>
+    </p>
+    <p class="text-sm md:text-base mt-1 text-white/80 font-light">
+        בדקי גם בתיקיית קידומי מכירות או ספאם אם אינך רואה אותה.
+    </p>
+</div>
+
+<!-- סקשן הירו (Hero) -->
+<section class="max-w-4xl mx-auto px-5 pt-16 pb-12 text-center">
+    <div class="inline-block font-medium text-brand-green bg-white px-6 py-3 rounded-full mb-6 border border-brand-gold/40 shadow-sm text-sm md:text-base">
+        אוהבת את החוברת? חכי שתראי מה מחכה לך בספר המלא...
+    </div>
+    
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-green mb-4 leading-tight tracking-tight">
+        סוף סוף לאכול בריא בלי לוותר על הטעם
+    </h1>
+    <h2 class="text-xl md:text-2xl font-medium text-text-muted mb-8">
+        המהדורה הדיגיטלית - 82 מתכונים ללא גלוטן וללא סוכר שבאמת כיף לאכול
+    </h2>
+
+    <!-- כרטיס הצעת ערך (Glassmorphism) -->
+    <div class="glass-card rounded-3xl p-8 md:p-10 mb-10 max-w-2xl mx-auto relative overflow-hidden">
+        <!-- עיטור גרפי רקע -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-green/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="flex flex-col items-center justify-center gap-2 mb-8 relative z-10">
+            <div class="text-brand-gold font-bold text-lg mb-1">הצעה מיוחדת עבורך</div>
+            <div class="text-4xl font-black text-brand-green bg-white px-8 py-4 rounded-2xl border border-brand-green/10 shadow-sm">
+                47 ₪ <span class="text-text-muted text-2xl font-medium ml-2">במקום <span class="price-strike">69 ₪</span></span>
+            </div>
+        </div>
+        
+        <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold block w-full md:w-auto md:inline-block px-10 py-5 rounded-full text-xl font-bold uppercase tracking-wide mb-5 relative z-10 text-center">
+            אני רוצה את הספר הדיגיטלי עכשיו <br class="hidden md:block"><span class="text-base font-medium normal-case block mt-1 opacity-90">ולקבל גישה מיידית</span>
+        </a>
+        
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-text-muted font-medium relative z-10">
+            <span class="flex items-center gap-1.5"><i class="ph ph-lock-key text-brand-green text-lg"></i> תשלום מאובטח</span>
+            <span class="flex items-center gap-1.5"><i class="ph ph-device-mobile text-brand-green text-lg"></i> גישה מיידית</span>
+            <span class="flex items-center gap-1.5"><i class="ph ph-plant text-brand-green text-lg"></i> ללא גלוטן וסוכר</span>
+        </div>
+    </div>
+</section>
+
+<!-- סקשן הבעיה (Agitation) -->
+<section class="bg-white py-16 lg:py-24 border-y border-gray-100">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+        <h3 class="text-3xl font-bold text-brand-green mb-8 text-center">החוברת שקיבלת היא טעימה קטנה.</h3>
+        
+        <div class="glass-card p-8 md:p-12 rounded-3xl mb-12 shadow-sm text-right">
+            <p class="text-xl font-medium text-text-dark mb-6">
+                עבור הרבה נשים, מגיע שלב שבו הן מרגישות שהגוף כבר לא מגיב כמו פעם.
+            </p>
+            
+            <ul class="space-y-2 text-lg text-text-muted font-medium mb-6 pr-4 border-r-2 border-brand-green/20">
+                <li>פתאום הסוכר משפיע יותר.</li>
+                <li>הכולסטרול עולה.</li>
+                <li>הבטן רגישה יותר.</li>
+            </ul>
+            
+            <p class="text-lg text-text-muted mb-6 leading-relaxed">
+                יש דברים שפעם אכלנו בלי לחשוב פעמיים,<br>
+                והיום אנחנו כבר יודעות שלא תמיד הם עושים לנו טוב.
+            </p>
+            
+            <p class="text-xl md:text-2xl font-black text-brand-green mb-4">
+                ועדיין...<br>
+                אנחנו רוצות ליהנות מהאוכל.
+            </p>
+
+            <ul class="space-y-2 text-lg text-text-muted font-medium mb-8">
+                <li>מהריחות שעולים מהתנור.</li>
+                <li>מהעוגה ליד הקפה.</li>
+                <li>מהמאפה של שבת.</li>
+                <li>מהדברים הקטנים שעושים לנו טוב על הלב.</li>
+            </ul>
+            
+            <div class="bg-brand-cream/80 p-6 rounded-2xl border border-gray-100 text-center">
+                <p class="text-xl font-bold text-brand-green mb-2">בדיוק מהמקום הזה נולד הספר הזה.</p>
+                <p class="text-lg text-text-dark font-medium">כדי להוכיח שאפשר לאכול בצורה טובה יותר,<br>בלי להרגיש שכל מה שאוהבים הפך להיות מחוץ לתפריט.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- סקשן הספר ומה הוא כולל (Solution) -->
+<section class="py-16 lg:py-24 max-w-5xl mx-auto px-5">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        
+        <!-- תוכן על הספר -->
+        <div class="w-full lg:w-1/2 order-2 lg:order-1">
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-green mb-6 leading-tight">האמת? הספר הזה נולד מתוך צורך אישי.</h2>
+            
+            <div class="text-lg md:text-xl text-text-muted mb-8 leading-relaxed">
+                <p class="mb-4">
+                    לפני שנים גיליתי שלא טוב לי לאכול קמחים רגילים וסוכר כמו פעם.
+                    התחלתי לחפש מתכונים בריאים יותר, אבל שוב ושוב התאכזבתי.
+                </p>
+                
+                <div class="pr-5 border-r-4 border-brand-gold/50 bg-brand-cream/50 p-5 rounded-l-2xl shadow-sm my-6">
+                    <ul class="space-y-3 font-medium text-text-dark">
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-caret-left text-brand-gold"></i> חלק היו מסובכים.</li>
+                        <li class="flex items-center gap-2"><i class="ph-bold ph-caret-left text-brand-gold"></i> חלק לא היו טעימים.</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-left text-brand-gold mt-1.5"></i> <span>וחלק נראו נהדר בתמונה, אבל לא עברו את מבחן המשפחה.</span></li>
+                    </ul>
+                </div>
+                
+                <p class="font-bold text-brand-green text-2xl mt-8 mb-4">
+                    אז התחלתי לנסות, לשפר ולדייק.
+                </p>
+                
+                <div class="border-2 border-brand-green/80 bg-white p-6 rounded-2xl shadow-md my-6 text-center">
+                    <p class="font-bold text-brand-green text-xl md:text-2xl">
+                        המתכונים שהצליחו שוב ושוב במטבח שלי הפכו בסופו של דבר לספר שאת רואה כאן היום.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- תמונת הספר (Mockup) -->
+        <div class="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
+            <img src="sefer.jpg" alt="ספר המטבח הבריא שלי" class="rounded-2xl shadow-soft max-w-xs md:max-w-sm w-full h-auto object-contain hover:-translate-y-2 transition-transform duration-500">
+        </div>
+    </div>
+</section>
+
+<!-- סקשן מה בפנים -->
+<section class="bg-white py-16 lg:py-24 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-green">מה מחכה לך בפנים?</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
+            <div class="glass-card p-8 rounded-3xl">
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-bread"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>12</strong> מאפים מלוחים</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-cooking-pot"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>11</strong> מנות עיקריות</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-leaf"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>10</strong> מתכונים עם טופו</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="glass-card p-8 rounded-3xl">
+                <ul class="space-y-6">
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-cake"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>19</strong> עוגות בריאות</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-cookie"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>15</strong> נשנושים מתוקים</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold text-2xl flex-shrink-0"><i class="ph ph-star"></i></div>
+                        <span class="text-lg font-medium text-text-dark"><strong>15</strong> מתכוני חגים</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- גלריית תמונות אוכל -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            <div class="rounded-2xl overflow-hidden shadow-sm aspect-square bg-gray-100 relative group">
+                <img src="a1.jpg" alt="אוכל בריא" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-sm aspect-square bg-gray-100 relative group">
+                <img src="a2.jpg" alt="אוכל בריא" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-sm aspect-square bg-gray-100 relative group">
+                <img src="a3.jpg" alt="אוכל בריא" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-sm aspect-square bg-gray-100 relative group">
+                <img src="a4.jpg" alt="אוכל בריא" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+        </div>
+
+        <!-- כפתור רכישה שני (אמצע) -->
+        <div class="text-center">
+            <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold inline-block px-8 py-5 rounded-full text-xl font-bold uppercase tracking-wide w-full sm:w-auto shadow-gold">
+                כן, אני רוצה את הספר ב-47 ₪ בלבד
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- סקשן הוכחה חברתית (Testimonials) -->
+<section class="py-16 lg:py-24 max-w-6xl mx-auto px-5">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-brand-green">מה אומרות מי שכבר מבשלות מהספר?</h2>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <!-- מקום לצילומי מסך של עדויות -->
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-gray-100 bg-white aspect-[4/3] relative group">
+             <img src="1.jpg" alt="עדות 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-gray-100 bg-white aspect-[4/3] relative group">
+             <img src="2.jpg" alt="עדות 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-soft border border-gray-100 bg-white aspect-[4/3] relative group">
+             <img src="3.jpg" alt="עדות 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+    </div>
+</section>
+
+<!-- סקשן רכישה תחתון (Bottom CTA) -->
+<section id="buy-now" class="bg-[#1B4D3E] py-16 lg:py-24 relative overflow-hidden">
+    <!-- צורות גרפיות רקע -->
+    <div class="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 10% 20%, #D4AF37 10%, transparent 20%); background-size: 50px 50px;"></div>
+    
+    <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
+        <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl relative">
+            <h3 class="text-3xl md:text-4xl font-black text-brand-green mb-4">המטבח הבריא שלי <span class="text-brand-gold">מהדורה דיגיטלית</span></h3>
+            <p class="text-text-muted text-lg mb-8">גישה מיידית ל-82 מתכונים בריאים ומדויקים</p>
+            
+            <!-- משפט מכירתי חזק להצדקת המחיר -->
+            <div class="bg-brand-cream/80 border border-brand-green/10 rounded-2xl p-5 mb-8 shadow-sm">
+                <p class="text-lg md:text-xl font-medium text-brand-green text-center leading-relaxed">
+                    פחות ממחיר של עוגה אחת בקונדיטוריה ויכול לתת לך עשרות רעיונות לארוחות, מאפים וקינוחים שתכיני שוב ושוב.
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center justify-center gap-2 mb-10">
+                <div class="text-brand-gold font-bold text-xl mb-1">הצעה מיוחדת עבורך</div>
+                <div class="text-4xl font-black text-brand-green bg-white px-8 py-4 rounded-2xl border border-brand-green/10 shadow-sm">
+                    47 ₪ <span class="text-text-muted text-2xl font-medium ml-2">במקום <span class="price-strike">69 ₪</span></span>
+                </div>
+            </div>
+            
+            <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold flex flex-col items-center justify-center w-full px-8 py-6 rounded-full text-2xl font-bold uppercase tracking-wide mb-8">
+                <span>אני רוצה את הספר הדיגיטלי עכשיו</span>
+                <span class="text-lg font-medium normal-case mt-1 opacity-90">ולקבל גישה מיידית למכשיר שלי</span>
+            </a>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-text-dark font-medium bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                <span class="flex items-center gap-2"><i class="ph-fill ph-lock-key text-brand-green text-xl"></i> תשלום מאובטח</span>
+                <span class="hidden sm:block text-gray-300">|</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-device-mobile text-brand-green text-xl"></i> גישה מיידית</span>
+                <span class="hidden sm:block text-gray-300">|</span>
+                <span class="flex items-center gap-2"><i class="ph-fill ph-leaf text-brand-green text-xl"></i> ללא גלוטן וסוכר</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- סקשן P.S (הפניה לוואטסאפ) ופוטר -->
+<footer class="bg-brand-cream pt-16 pb-8 text-center border-t border-gray-200">
+    <div class="max-w-2xl mx-auto px-5 mb-16">
+        <div class="glass-card p-8 rounded-3xl text-center shadow-soft border border-brand-green/10">
+            <div class="w-16 h-16 bg-brand-green rounded-full text-white flex items-center justify-center mx-auto mb-6 shadow-md">
+                <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+            </div>
+            <p class="text-lg text-text-dark mb-8 leading-relaxed">
+                <span class="font-bold text-xl block mb-2">רוצה לקבל השראה ומתכונים ליום-יום?</span>
+                אני משתפת ביום-יום את כל מה שקורה מאחורי הקלעים –<br class="hidden sm:block">
+                בישולים, רעיונות ספונטניים, והמון השראה טעימה ללא גלוטן וסוכר.<br class="hidden sm:block">
+                בואי, מחכה לך בסטטוס!
+            </p>
+            <!-- הקישור שונה לקישור הוואטסאפ (עם הקידומת המדויקת של ישראל כדי שיפתח חלק) -->
+            <a href="https://wa.me/972504207702?text=היי+רבקה+אשמח+לצפות+בסטטוסים+שלך" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-[#1DA851] transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto">
+                <i class="ph-fill ph-whatsapp-logo text-2xl"></i> להצטרפות לסטטוס
+            </a>
+        </div>
+    </div>
+    
+    <div class="text-text-muted text-sm px-5">
+        <p>© כל הזכויות שמורות למטבח הבריא שלי</p>
+    </div>
+</footer>
+
+</body>
+</html>
