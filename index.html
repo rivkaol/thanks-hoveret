@@ -118,7 +118,7 @@
 <div class="bg-[#1B4D3E] text-white text-center py-4 px-4 border-b border-[#2C6E5A] shadow-md">
     <p class="font-medium flex items-center justify-center gap-2 text-base md:text-lg">
         <i class="ph ph-confetti text-2xl text-[#D4AF37]"></i>
-        <span><strong>החוברת בדרך אלייך למייל</strong></span>
+        <span><strong>החוברת שלך כבר בדרך למייל ✓</strong></span>
     </p>
     <p class="text-sm md:text-base mt-1 text-white/80 font-light">
         לא רואה אותה? כדאי לבדוק גם בתיקיית הספאם או הקידומים.
@@ -135,121 +135,111 @@
         סוף סוף לאכול בריא<br class="hidden sm:block"> בלי לוותר על הטעם
     </h1>
     <h2 class="text-xl md:text-2xl font-medium text-text-muted mb-8 leading-relaxed max-w-2xl mx-auto">
-        המהדורה הדיגיטלית 82 מתכונים
-        <strong class="text-brand-green whitespace-nowrap">ללא גלוטן וסוכר</strong>
-        שבאמת כיף לאכול.
+        82 מתכונים ללא גלוטן וסוכר — מאפים, עוגות וארוחות שתכיני בקלות, וכל המשפחה תאהב.
     </h2>
 
-    <!-- כרטיס הצעת ערך (Glassmorphism) -->
-    <div class="glass-card rounded-3xl p-8 md:p-10 mb-10 max-w-2xl mx-auto relative overflow-hidden">
-        <!-- עיטור גרפי רקע -->
-        <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-green/10 rounded-full blur-2xl pointer-events-none"></div>
+    <!-- כרטיס הצעת ערך עם חותמת זהב צפה -->
+    <div class="max-w-2xl mx-auto relative mb-10 z-10 mt-6 sm:mt-0">
+        
+        <!-- מדבקת זהב: מהדורה דיגיטלית -->
+        <div class="absolute -top-5 -left-2 sm:-top-8 sm:-left-8 w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-[#FCE38A] via-[#D4AF37] to-[#997B09] rounded-full flex flex-col items-center justify-center text-center z-30 -rotate-12 shadow-[0_8px_25px_rgba(212,175,55,0.4)] border-4 border-white text-white">
+            <span class="text-[0.65rem] sm:text-xs font-bold tracking-wider mb-0.5 opacity-90">מהדורה</span>
+            <span class="text-sm sm:text-lg font-black leading-none mb-1">דיגיטלית</span>
+            <i class="ph-fill ph-devices text-xl sm:text-2xl"></i>
+        </div>
+        
+        <div class="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden">
+            <!-- עיטור גרפי רקע -->
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-green/10 rounded-full blur-2xl pointer-events-none"></div>
 
-        <div class="flex flex-col items-center justify-center gap-2 mb-6 relative z-10">
-            <div class="text-brand-gold font-bold text-lg mb-1">מחיר מיוחד, רק כאן בעמוד הזה</div>
-            <div class="flex flex-row items-center justify-center gap-2 text-3xl sm:text-4xl font-black text-brand-green bg-white px-6 py-4 rounded-2xl border border-brand-green/10 shadow-sm whitespace-nowrap">
-                <span>47 ₪</span> 
-                <span class="text-text-muted text-xl sm:text-2xl font-medium">במקום <span class="price-strike">69 ₪</span></span>
+            <div class="flex flex-col items-center justify-center gap-2 mb-6 relative z-10">
+                <div class="text-brand-gold font-bold text-lg mb-1">מחיר מיוחד, רק כאן בעמוד הזה</div>
+                <div class="flex flex-row items-center justify-center gap-2 text-3xl sm:text-4xl font-black text-brand-green bg-white px-6 py-4 rounded-2xl border border-brand-green/10 shadow-sm whitespace-nowrap">
+                    <span>47 ₪</span> 
+                    <span class="text-text-muted text-xl sm:text-2xl font-medium">במקום <span class="price-strike">69 ₪</span></span>
+                </div>
             </div>
-        </div>
 
-        <p class="text-text-muted text-base mb-6 relative z-10">
-            המחיר הזה שמור לך כאן, אחרי שקיבלת את החוברת.<br class="hidden sm:block">
-            בדף הרגיל הספר נמכר ב-69 ₪.
-        </p>
-        
-        <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold block w-full md:w-3/4 lg:w-2/3 mx-auto px-12 py-5 rounded-xl text-xl md:text-2xl font-bold uppercase tracking-wide mb-5 relative z-10 text-center shadow-gold">
-            אני רוצה את הספר עכשיו
-        </a>
-        
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-text-muted font-medium relative z-10">
-            <span class="flex items-center gap-1.5"><i class="ph ph-lock-key text-brand-green text-lg"></i> תשלום מאובטח</span>
-            <span class="flex items-center gap-1.5"><i class="ph ph-device-mobile text-brand-green text-lg"></i> גישה מיידית</span>
-            <span class="flex items-center gap-1.5"><i class="ph ph-plant text-brand-green text-lg"></i> ללא גלוטן וסוכר</span>
-        </div>
-    </div>
-</section>
-
-<!-- סקשן הבעיה (Agitation) -->
-<section class="bg-white py-16 lg:py-24 border-y border-gray-100">
-    <div class="max-w-3xl mx-auto px-5 text-center">
-        <h3 class="text-3xl font-bold text-brand-green mb-8 text-center">החוברת שקיבלת היא רק טעימה קטנה.</h3>
-        
-        <div class="glass-card p-8 md:p-12 rounded-3xl mb-12 shadow-sm text-right">
-            <p class="text-xl font-medium text-text-dark mb-6">
-                מגיע גיל שבו פתאום מרגישים שהגוף כבר לא מגיב כמו פעם.
+            <p class="text-text-muted text-base mb-6 relative z-10">
+                המחיר הזה שמור לך כאן, אחרי שקיבלת את החוברת.<br class="hidden sm:block">
+                בדף הרגיל הספר נמכר ב-69 ₪.
             </p>
             
-            <ul class="space-y-2 text-lg text-text-muted font-medium mb-6 pr-4 border-r-2 border-brand-green/20">
-                <li>הסוכר משפיע יותר.</li>
-                <li>הכולסטרול עולה.</li>
-                <li>הבטן רגישה יותר.</li>
-            </ul>
+            <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold block w-full md:w-3/4 lg:w-2/3 mx-auto px-12 py-5 rounded-xl text-xl md:text-2xl font-bold uppercase tracking-wide mb-3 relative z-10 text-center shadow-gold">
+                אני רוצה את הספר עכשיו
+            </a>
             
-            <p class="text-lg text-text-muted mb-6 leading-relaxed">
-                יש דברים שפעם אכלנו בלי לחשוב פעמיים,<br>
-                והיום כבר יודעות שהם לא תמיד עושים לנו טוב.
+            <p class="text-sm text-text-muted mb-6 relative z-10 font-medium px-4">
+                82 מתכונים שכבר עובדים אצל מאות נשים. אני בטוחה שתמצאי בו את הטעמים שחיפשת.
             </p>
             
-            <p class="text-xl md:text-2xl font-black text-brand-green mb-4">
-                ובכל זאת<br>
-                בא לנו ליהנות מהאוכל.
-            </p>
-
-            <ul class="space-y-2 text-lg text-text-muted font-medium mb-8">
-                <li>מהריח שעולה מהתנור.</li>
-                <li>מהעוגה לצד הקפה.</li>
-                <li>מהמאפה של שבת.</li>
-                <li>מהדברים הקטנים שעושים טוב על הלב.</li>
-            </ul>
-            
-            <div class="bg-brand-cream/80 p-6 rounded-2xl border border-gray-100 text-center">
-                <p class="text-xl font-bold text-brand-green mb-2">מהמקום הזה בדיוק נולד הספר.</p>
-                <p class="text-lg text-text-dark font-medium">כדי להראות שאפשר לאכול טוב יותר,<br>בלי שכל מה שאוהבים יהפוך למחוץ לתפריט.</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-text-muted font-medium relative z-10">
+                <span class="flex items-center gap-1.5"><i class="ph ph-lock-key text-brand-green text-lg"></i> תשלום מאובטח</span>
+                <span class="flex items-center gap-1.5"><i class="ph ph-device-mobile text-brand-green text-lg"></i> גישה מיידית</span>
+                <span class="flex items-center gap-1.5"><i class="ph ph-plant text-brand-green text-lg"></i> ללא גלוטן וסוכר</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- סקשן הספר ומה הוא כולל (Solution) -->
-<section class="py-16 lg:py-24 max-w-5xl mx-auto px-5">
-    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+<!-- סקשן הסיפור האישי והבעיה (הקופי החדש) -->
+<section class="bg-white py-16 lg:py-24 border-y border-gray-100 relative overflow-hidden">
+    <!-- עיטור רקע (אופציונלי, נותן עומק) -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-green/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+    
+    <div class="max-w-3xl mx-auto px-5 text-right relative z-10">
+        <h3 class="text-3xl font-bold text-brand-green mb-10 text-center">החוברת שקיבלת היא רק טעימה קטנה.</h3>
         
-        <!-- תוכן על הספר -->
-        <div class="w-full lg:w-1/2 order-2 lg:order-1">
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-green mb-6 leading-tight">הספר הזה נולד אצלי במטבח.</h2>
+        <!-- תמונת הספר הממורכזת תחת הכותרת -->
+        <div class="flex justify-center mb-12 relative">
+             <img src="sefer.jpg" alt="ספר המטבח הבריא שלי" class="rounded-2xl shadow-soft max-w-[280px] w-full h-auto object-contain hover:-translate-y-2 transition-transform duration-500 relative z-20">
+             <!-- עיטור רקע לתמונה -->
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] bg-brand-gold/10 rounded-full blur-xl z-10 pointer-events-none hidden lg:block"></div>
+        </div>
+        
+        <!-- טקסט הסיפור -->
+        <div class="w-full">
+            <p class="text-2xl font-bold text-brand-green mb-4">
+                הספר הזה נולד אצלי במטבח.
+            </p>
             
-            <div class="text-lg md:text-xl text-text-muted mb-8 leading-relaxed">
-                <p class="mb-4">
-                    לפני שנים גיליתי שקמחים רגילים וסוכר כבר לא עושים לי טוב.
-                    התחלתי לחפש מתכונים בריאים יותר ושוב ושוב התאכזבתי.
+            <p class="text-lg text-text-dark leading-relaxed mb-6">
+                לפני שנים גיליתי שקמחים רגילים וסוכר כבר לא עושים לי טוב. וזה מגיע לכולנו בשלב מסוים — הסוכר משפיע יותר, הבטן רגישה יותר, ויש דברים שפעם אכלנו בלי לחשוב פעמיים, והיום כבר יודעות שהם לא תמיד עושים לנו טוב.
+            </p>
+            
+            <p class="text-xl font-medium text-brand-green mb-6 bg-brand-cream/60 p-4 rounded-xl border border-gray-100">
+                אבל בכל זאת — בא לי ליהנות מהאוכל. מהריח שעולה מהתנור, מהעוגה לצד הקפה, מהמאפה של שבת.
+            </p>
+            
+            <p class="text-lg text-text-dark leading-relaxed mb-4">
+                אז התחלתי לחפש מתכונים בריאים יותר — ואולי גם לך זה מוכר:
+            </p>
+            
+            <div class="pr-5 border-r-4 border-brand-gold/50 mb-8 space-y-3">
+                <p class="text-lg text-text-muted flex items-start gap-2">
+                    <i class="ph-bold ph-x text-[#ef4444] mt-1"></i>
+                    <span>מתכונים מסובכים, עם מצרכים שצריך לרדוף אחריהם בכל העיר.</span>
                 </p>
-                
-                <div class="pr-5 border-r-4 border-brand-gold/50 bg-brand-cream/50 p-5 rounded-l-2xl shadow-sm my-6">
-                    <ul class="space-y-3 font-medium text-text-dark">
-                        <li class="flex items-center gap-2"><i class="ph-bold ph-caret-left text-brand-gold"></i> חלק היו מסובכים מדי.</li>
-                        <li class="flex items-center gap-2"><i class="ph-bold ph-caret-left text-brand-gold"></i> חלק פשוט לא היו טעימים.</li>
-                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-left text-brand-gold mt-1.5"></i> <span>וחלק נראו נהדר בתמונה אבל לא עברו את מבחן המשפחה.</span></li>
-                    </ul>
-                </div>
-                
-                <p class="font-bold text-brand-green text-2xl mt-8 mb-4">
-                    אז התחלתי לנסות, לשפר ולדייק.
+                <p class="text-lg text-text-muted flex items-start gap-2">
+                    <i class="ph-bold ph-x text-[#ef4444] mt-1"></i>
+                    <span>כאלה שיצאו יבשים ובלי טעם, שמרגישים כמו "אוכל של דיאטה".</span>
                 </p>
-                
-                <div class="border-2 border-brand-green/80 bg-white p-6 rounded-2xl shadow-md my-6 text-center">
-                    <p class="font-bold text-brand-green text-xl md:text-2xl">
-                        המתכונים שהצליחו אצלי שוב ושוב הם אלה שתמצאי כאן בספר.
-                    </p>
-                </div>
+                <p class="text-lg text-text-muted flex items-start gap-2">
+                    <i class="ph-bold ph-x text-[#ef4444] mt-1"></i>
+                    <span>וכאלה שנראו מושלמים בתמונה - אבל בבית אף אחד לא נגע בהם.</span>
+                </p>
             </div>
+            
+            <p class="text-xl md:text-2xl font-bold text-brand-green leading-snug">
+                אז התחלתי לנסות, לשפר ולדייק - עד שנשארו אצלי רק המתכונים שבאמת עובדים:<br>
+                <span class="text-brand-gold">טעימים, פשוטים, וכאלה שמתחשק להכין שוב ושוב.</span>
+            </p>
+            <p class="text-xl font-medium text-text-dark mt-2">
+                אותם תמצאי כאן בספר.
+            </p>
         </div>
-
-        <!-- תמונת הספר (Mockup) -->
-        <div class="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
-            <img src="sefer.jpg" alt="ספר המטבח הבריא שלי" class="rounded-2xl shadow-soft max-w-xs md:max-w-sm w-full h-auto object-contain hover:-translate-y-2 transition-transform duration-500">
-        </div>
+        
     </div>
 </section>
 
@@ -258,6 +248,7 @@
     <div class="max-w-4xl mx-auto px-5">
         <div class="text-center mb-12">
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-green">מה מחכה לך בפנים?</h2>
+            <p class="text-lg text-text-muted mt-4 max-w-2xl mx-auto font-medium">לא עוד "אוכל בריא" משעמם — אלא בדיוק הדברים שהתגעגעת אליהם, בגרסה שעושה לך טוב.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
@@ -314,7 +305,7 @@
         <!-- כפתור רכישה שני (אמצע) -->
         <div class="text-center">
             <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold inline-block px-14 py-5 rounded-xl text-xl md:text-2xl font-bold uppercase tracking-wide w-full md:w-3/4 lg:w-2/3 shadow-gold">
-                כן, אני רוצה את הספר ב-47 ₪
+                כן, אני רוצה להתחיל לבשל מהספר
             </a>
         </div>
     </div>
@@ -360,12 +351,8 @@
                 <span class="text-text-dark font-medium">נשאר אצלך לתמיד חוזרים אליו מתי שרוצים.</span>
             </div>
             <div class="flex items-start gap-3 glass-card p-5 rounded-2xl">
-                <i class="ph-fill ph-infinity text-brand-green text-2xl flex-shrink-0 mt-0.5"></i>
-                <span class="text-text-dark font-medium">נשאר אצלך לתמיד — חוזרים אליו מתי שרוצים.</span>
-            </div>
-            <div class="flex items-start gap-3 glass-card p-5 rounded-2xl">
                 <i class="ph-fill ph-heart text-brand-green text-2xl flex-shrink-0 mt-0.5"></i>
-                <span class="text-text-dark font-medium">מתכונים פשוטים, מדויקים, שכבר עברו את מבחן המטבח שלי.</span>
+                <span class="text-text-dark font-medium">מתכונים פשוטים ומדויקים, שכבר הוכיחו את עצמם במטבח שלי שוב ושוב.</span>
             </div>
         </div>
     </div>
@@ -400,9 +387,13 @@
                 אחרי שתעזבי את העמוד, הספר חוזר למחיר הרגיל.
             </p>
             
-            <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold flex items-center justify-center w-full px-12 py-6 rounded-xl text-2xl md:text-3xl font-bold uppercase tracking-wide mb-8 shadow-gold">
+            <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" target="_blank" rel="noopener noreferrer" class="btn-gold flex items-center justify-center w-full px-12 py-6 rounded-xl text-2xl md:text-3xl font-bold uppercase tracking-wide mb-3 shadow-gold">
                 אני רוצה את הספר עכשיו
             </a>
+            
+            <p class="text-sm text-white/80 mb-8 text-center font-medium px-4">
+                82 מתכונים שכבר עובדים אצל מאות נשים. אני בטוחה שתמצאי בו את הטעמים שחיפשת.
+            </p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-text-dark font-medium bg-gray-50 p-5 rounded-2xl border border-gray-100">
                 <span class="flex items-center gap-2"><i class="ph-fill ph-lock-key text-brand-green text-xl"></i> תשלום מאובטח</span>
