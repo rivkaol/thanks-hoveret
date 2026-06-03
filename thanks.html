@@ -1,448 +1,385 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>החוברת בדרך אלייך - המטבח הבריא שלי</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>המטבח הבריא שלי - הצעה מיוחדת</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Rubik', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              green: '#1B4D3E',
+              greenLight: '#2C6E5A',
+              gold: '#D4AF37',
+              goldLight: '#E5C565',
+              cream: '#FDFBF7',
+              border: '#E2D8CA',
+              dark: '#333333',
+              muted: '#4A5568',
+              error: '#ef4444'
+            }
+          },
+          boxShadow: {
+            'soft': '0 8px 32px rgba(27, 77, 62, 0.08)',
+            'gold': '0 4px 15px rgba(212, 175, 55, 0.3)',
+            'gold-hover': '0 6px 20px rgba(212, 175, 55, 0.4)',
+            'card': '0 10px 40px -10px rgba(27, 77, 62, 0.1)'
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --primary-green: #1B4D3E;
-      --primary-light: #2C6E5A;
-      --accent-gold: #D4AF37;
-      --accent-gold-light: #E5C565;
-      --bg-cream: #FDFBF7;
-      --text-dark: #2D3748;
-      --text-muted: #4A5568;
-      --shadow-soft: 0 10px 30px rgba(27, 77, 62, 0.08);
-      --shadow-img: 0 8px 24px rgba(0, 0, 0, 0.12);
-      --shadow-gold: 0 6px 20px rgba(212, 175, 55, 0.3);
-    }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    
     body {
-      font-family: 'Rubik', sans-serif;
-      background: var(--bg-cream);
-      color: var(--text-dark);
-      line-height: 1.6;
-      direction: rtl;
-      font-size: 20px;
+      background-color: #FDFBF7;
     }
     
-    /* ── TYPOGRAPHY & UTILS ── */
-    h1, h2, h3 { line-height: 1.3; color: var(--primary-green); }
-    h2 { font-size: clamp(28px, 6vw, 36px); font-weight: 800; margin-bottom: 16px; }
-    p { margin-bottom: 16px; }
-    .text-center { text-align: center; }
-    .font-bold { font-weight: 700; }
-    .highlight { color: var(--accent-gold); }
-    
-    /* ── SECTIONS ── */
-    .section { padding: 48px 24px; max-width: 760px; margin: 0 auto; }
-    .section-sm { padding: 32px 24px; }
-    .bg-white { background: #FFFFFF; }
-    
-    /* ── HERO / THANK YOU BANNER ── */
-    .thank-you-banner {
-      background: var(--primary-green);
-      color: #fff;
-      text-align: center;
-      padding: 40px 24px;
-    }
-    .thank-you-banner .eyebrow {
-      display: inline-block;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent-gold-light);
-      background: rgba(212,175,55,0.15);
-      border: 1px solid rgba(229,197,101,0.3);
-      border-radius: 50px;
-      padding: 8px 20px;
-      margin-bottom: 16px;
-    }
-    .thank-you-banner p { font-size: 18px; color: rgba(255,255,255,0.9); margin: 0; max-width: 600px; margin: 0 auto; }
-
-    /* ── IMAGES & GRIDS ── */
-    .hero-img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: var(--shadow-img);
-      margin-bottom: 32px;
-      object-fit: cover;
-    }
-    
-    .story-text {
-      font-size: 22px;
-      color: var(--text-dark);
-      text-align: center;
-    }
-    
-    .nine-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 32px 0;
-    }
-    .nine-grid img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
-    }
-    .nine-grid img:hover { transform: scale(1.03); }
-
-    .book-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0;
-    }
-    .book-preview-grid img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      border: 1px solid #eee;
-    }
-
-    .wa-grid {
-      display: grid;
-      grid-template-columns: 1fr; /* תמונות רחבות (1000x800) יופיעו אחת מתחת לשנייה לקריאות מקסימלית */
-      gap: 24px;
-      margin: 32px auto;
-      max-width: 650px; /* תוחם את הרוחב כדי שלא יהיה מוגזם במסכי מחשב */
-    }
-    .wa-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: var(--shadow-soft);
-    }
-    
-    /* ── OFFER CARD ── */
-    .offer-card {
-      background: #fff;
-      border: 2px solid rgba(212, 175, 55, 0.3);
-      border-radius: 24px;
-      padding: 40px 32px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
+    .hero-bg {
+      background: #1B4D3E;
       position: relative;
-      margin: 40px auto;
-      max-width: 600px;
+      overflow: hidden;
     }
     
-    .offer-badge {
+    .hero-bg::before {
+      content: '';
       position: absolute;
-      top: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent-gold);
-      color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 6px 20px;
-      border-radius: 50px;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(212,175,55,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 60%);
+      pointer-events: none;
     }
-    
-    .price {
-      font-size: 64px;
-      font-weight: 900;
-      color: var(--primary-green);
-      line-height: 1;
-      margin: 24px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .price span { font-size: 24px; font-weight: 500; color: var(--text-muted); margin-top: 16px; }
-    
-    .green-list {
-      list-style: none;
-      text-align: right;
+
+    .hero-eyebrow {
       display: inline-block;
-      margin: 0 auto 32px;
-    }
-    .green-list li {
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 500;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      letter-spacing: 0.1em;
+      color: #E5C565;
+      border: 1px solid rgba(229,197,101,0.4);
+      border-radius: 50px;
+      padding: 6px 20px;
+      margin-bottom: 20px;
     }
-    
+    @media (min-width: 768px) {
+      .hero-eyebrow {
+        font-size: 16px;
+        padding: 8px 24px;
+        margin-bottom: 24px;
+      }
+    }
+
     .btn-primary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      min-height: 72px;
       background: linear-gradient(135deg, #FCE38A 0%, #D4AF37 50%, #997B09 100%);
       color: #fff;
-      border: none;
-      border-radius: 50px;
-      font-size: 24px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: var(--shadow-gold);
-      transition: transform 0.2s;
-    }
-    .btn-primary:hover { transform: translateY(-3px); }
-
-    /* ── HEART LIST ── */
-    .heart-list {
-      list-style: none;
-      margin: 24px 0;
-    }
-    .heart-list li {
-      font-size: 22px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 600px) {
-      .nine-grid { gap: 8px; }
-      .book-preview-grid { grid-template-columns: repeat(2, 1fr); }
-      .book-preview-grid img:nth-child(3) { display: none; } /* Hide 3rd on mobile if needed, or keep 2 rows */
-      .wa-grid { max-width: 100%; margin-left: auto; margin-right: auto; }
-      .offer-card { padding: 40px 20px; }
-      .price { font-size: 56px; }
-      .btn-primary { font-size: 22px; min-height: 64px; }
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     
-    /* Utility for SVG Icons */
-    .icon-svg {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .category-card {
+      transition: all 0.3s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(27, 77, 62, 0.15);
+    }
+    
+    /* Utility for responsive text balancing */
+    .balance-text {
+      text-wrap: balance;
     }
   </style>
 </head>
-<body>
+<body class="text-brand-dark font-sans antialiased leading-relaxed">
 
-<!-- מקטע 1 - תודה -->
-<div class="thank-you-banner">
-  <div class="eyebrow icon-svg">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
-    החוברת כבר בדרך אלייך!
-  </div>
-  <p>בדקי גם בתיקיית קידומי מכירות או ספאם אם אינך רואה אותה בתיבת הדואר הראשית.</p>
-</div>
+  <header class="hero-bg text-center pt-8 md:pt-16 pb-12 md:pb-20 px-4">
+    <div class="max-w-5xl mx-auto relative z-10">
 
-<!-- מקטע 2 - תמונה שלך והיכרות -->
-<section class="section fade-in">
-  <!-- תמונה גדולה שלך במטבח עם הספר ביד -->
-  <img src="me.jpg" alt="רבקה במטבח עם הספר" class="hero-img">
-  
-  <div class="story-text">
-    <h2 class="icon-svg" style="margin-bottom: 24px;">
-      רגע לפני שאת הולכת... 
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-    </h2>
-    <p>אם אהבת את החוברת שקיבלת עכשיו,<br>יש סיכוי טוב שתאהבי גם את זה.</p>
-    <p><strong>אני רבקה.</strong></p>
-    <p>בשנים האחרונות אלפי נשים מבשלות ואופות יחד איתי מתכונים ללא גלוטן וסוכר.</p>
-    <p>אחרי שנים שבהן נשים ביקשו ממני לרכז את המתכונים שאני מכינה שוב ושוב בבית, החלטתי ליצור ספר דיגיטלי אחד שמרכז את כולם.</p>
-    
-    <h2 style="font-size: 32px; margin-top: 32px; margin-bottom: 8px;">המטבח הבריא שלי</h2>
-    <p class="font-bold" style="color: var(--accent-gold); font-size: 24px;">82 מתכונים ללא גלוטן וסוכר.</p>
-  </div>
-</section>
+      <!-- Notification Note -->
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-4 md:p-5 max-w-2xl mx-auto mb-8 md:mb-12 shadow-lg backdrop-blur-md">
+        <div class="text-brand-goldLight text-lg md:text-xl mb-1 font-bold flex items-center justify-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect><path d="M12 8v-2a4 4 0 0 1 8 0v2"></path><circle cx="12" cy="14" r="2"></circle></svg>
+          החוברת שלך כבר בדרך למייל
+        </div>
+        <div class="text-white/90 text-sm md:text-base balance-text">
+          לא רואה אותה? כדאי לבדוק גם בתיקיית הספאם או הקידומים.
+        </div>
+      </div>
 
-<!-- מקטע 3 - תמונות אוכל -->
-<section class="section bg-white fade-in text-center">
-  <!-- קולאז' של תמונה אחת גדולה -->
-  <img src="kolag.jpg" alt="קולאז' מתכונים" class="hero-img" style="margin-bottom: 32px;">
-  
-  <div class="story-text" style="font-size: 24px; font-weight: 500;">
-    <p style="color: var(--primary-green); font-weight: 800; font-size: 28px; margin-bottom: 24px;">אלו המתכונים שאני חוזרת אליהם שוב ושוב</p>
-    <ul class="heart-list" style="display: inline-block; text-align: right; margin-top: 0;">
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        כשמתחשק משהו מתוק
-      </li>
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        כשמגיעים אורחים
-      </li>
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        לשבתות וחגים
-      </li>
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        לימים שאין הרבה זמן לבשל
-      </li>
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        כשבא לי לפנק בלי גלוטן ובלי סוכר
-      </li>
-    </ul>
-  </div>
-</section>
+      <!-- Badge -->
+      <div class="hero-eyebrow">
+        רגע לפני שאת הולכת...
+      </div>
 
-<!-- מקטע 4 - מחיר ראשון -->
-<section class="section fade-in">
-  <!-- מוקאפ גדול של הספר על שולחן במטבח -->
-  <img src="mokup" alt="מוקאפ של הספר" class="hero-img">
-  
-  <div class="offer-card" id="offer1">
-    <div class="offer-badge icon-svg">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13"></path><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"></path></svg>
-      הצעה מיוחדת למי שהורידה את החוברת
+      <!-- Headline -->
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 md:mb-6 text-white max-w-4xl mx-auto balance-text">
+        מאות נשים כבר מכינות<br class="hidden md:block"> 
+        מהספר הזה בבית
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#D4AF37" stroke="none" class="inline-block ml-2 -mt-2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      </h1>
+
+      <!-- Subheadline -->
+      <div class="max-w-3xl mx-auto mb-10 md:mb-12 text-white font-light px-2">
+        <p class="font-bold text-brand-goldLight mb-3 text-xl md:text-3xl">82 מתכונים ללא גלוטן וללא סוכר</p>
+        <p class="text-white/85 text-lg md:text-xl balance-text leading-snug md:leading-relaxed">
+          מאפים, לחמים, ארוחות, עוגות וקינוחים<br class="hidden md:block">
+          שתכיני בקלות וכל המשפחה תאהב.
+        </p>
+      </div>
+
+      <!-- Main Image Collage Placeholder (Image 1) -->
+      <div class="flex justify-center mt-6 md:mt-8 mb-8 md:mb-12">
+        <img src="1.png" 
+             class="w-full max-w-3xl aspect-square md:aspect-video object-cover rounded-2xl md:rounded-3xl shadow-2xl border-4 border-brand-gold/20 bg-brand-greenLight" 
+             alt="הצצה למתכונים">
+      </div>
+
     </div>
-    <div class="price">47 <span>₪ בלבד</span></div>
-    
-    <p style="font-size: 20px; color: var(--text-dark); margin-bottom: 24px; font-weight: 500;">גישה מיידית לכל 82 המתכונים.</p>
-    
-    <ul class="green-list">
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2C6E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> ללא גלוטן</li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2C6E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> ללא סוכר</li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2C6E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> הספר נשאר אצלך לתמיד</li>
-      <li><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2C6E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> צפייה מיידית מכל טלפון או מחשב</li>
-    </ul>
+  </header>
 
-    <div style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
-      פחות מעלות של קפה ועוגה בבית קפה.<br>
-      ספר מתכונים שישאר אצלך לתמיד.
+  <section class="py-16 md:py-24 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <h2 class="text-2xl md:text-4xl font-bold text-center text-brand-green balance-text">
+          מה אומרות מי שכבר מבשלות מהספר?
+        </h2>
+      </div>
+      <div class="w-24 h-1 bg-brand-gold/30 mx-auto mb-10 md:mb-16 rounded-full"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4 md:px-0">
+        <!-- Testimonial Image 1 -->
+        <div class="transform transition duration-300 hover:-translate-y-1">
+          <img src="1.jpg" class="w-full aspect-[4/5] object-cover rounded-2xl md:rounded-3xl shadow-card border border-brand-border/50 bg-brand-cream" alt="עדות 1">
+        </div>
+
+        <!-- Testimonial Image 2 -->
+        <div class="transform transition duration-300 hover:-translate-y-1">
+          <img src="2.jpg" class="w-full aspect-[4/5] object-cover rounded-2xl md:rounded-3xl shadow-card border border-brand-border/50 bg-brand-cream" alt="עדות 2">
+        </div>
+
+        <!-- Testimonial Image 3 -->
+        <div class="transform transition duration-300 hover:-translate-y-1">
+          <img src="3.jpg" class="w-full aspect-[4/5] object-cover rounded-2xl md:rounded-3xl shadow-card border border-brand-border/50 bg-brand-cream" alt="עדות 3">
+        </div>
+      </div>
     </div>
-    
-    <a href="#checkout" class="btn-primary">
-      אני רוצה את הספר
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-    </a>
+  </section>
+
+  <div class="text-center py-6 md:py-8 text-brand-gold/40 bg-brand-cream border-t border-brand-border/30">
+    <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-8 h-8 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
   </div>
-</section>
 
-<!-- מקטע 5 - מה יש בפנים -->
-<section class="section bg-white fade-in">
-  <h2>מה מחכה לך בספר?</h2>
-  <ul class="heart-list">
-    <li>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      עשרות קינוחים ועוגות
-    </li>
-    <li>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      מגוון לחמים ומאפים
-    </li>
-    <li>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      מתכונים לארוחות משפחתיות
-    </li>
-    <li>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      רעיונות לשבת וחג
-    </li>
-    <li>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-      מתכונים קלים ליום־יום
-    </li>
-  </ul>
-</section>
+  <section class="bg-brand-cream pb-20 md:pb-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center mb-12 md:mb-20 pt-8 md:pt-10">
+        <h2 class="text-3xl md:text-5xl font-black text-brand-green tracking-tight balance-text">
+          הצצה למה שמחכה לך בפנים
+        </h2>
+        <div class="w-20 md:w-24 h-1 md:h-1.5 bg-brand-gold mx-auto mt-5 md:mt-6 rounded-full"></div>
+      </div>
 
-<!-- מקטע 6 - הצצה פנימה -->
-<section class="section fade-in text-center">
-  <h2>כדי שלא תצטרכי לחפש כל פעם מחדש</h2>
-  <p class="story-text">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-green); display: block; margin: 0 auto 16px;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-    במקום לעבור בין עשרות אתרים,<br>פשוט פותחים את הספר,<br>בוחרים מתכון,<br>ויוצאים לדרך.
-  </p>
-  
-  <!-- 3-4 צילומי מסך אמיתיים מתוך הספר -->
-  <div class="book-preview-grid">
-    <img src="t.jpg" alt="תוכן עניינים">
-    <img src="r.jpg" alt="עמוד מתכון">
-    <img src="l.jpg" alt="עמוד נוסף">
-  </div>
-</section>
+      <!-- Categories Grid - Updated to 2 columns so Tofu and Holidays are side by side -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
 
-<!-- מקטע 7 - עדויות -->
-<section class="section bg-white fade-in text-center">
-  <h2 class="icon-svg">
-    נשים שכבר רכשו מספרות
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#D4AF37" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-  </h2>
-  
-  <!-- 3 צילומי מסך של וואטסאפ -->
-  <div class="wa-grid">
-    <img src="1.jpg" alt="עדות וואטסאפ 1">
-    <img src="2.jpg" alt="עדות וואטסאפ 2">
-    <img src="3.jpg" alt="עדות וואטסאפ 3">
-  </div>
-</section>
+        <!-- Category 1: Breads (Image 5) -->
+        <div class="category-card bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-card border border-brand-border/60 flex flex-col">
+          <img src="5.png" class="w-full aspect-video md:aspect-[4/3] object-cover bg-brand-greenLight/10" alt="קולאז' לחמים ומאפים">
+          <div class="p-6 md:p-8 flex-grow flex flex-col">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Bread Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m4 12 1.3-4.6c.4-1.3 1.5-2.4 2.8-2.4h7.8c1.3 0 2.4 1.1 2.8 2.4L20 12" />
+                <path d="M2 12h20v5a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-5Z" />
+                <path d="M7 12v5" />
+                <path d="M12 12v5" />
+                <path d="M17 12v5" />
+              </svg>
+              <h3 class="text-xl md:text-2xl font-bold text-brand-green">מאפים ולחמים</h3>
+            </div>
+            <div class="inline-block bg-brand-gold/10 text-brand-gold font-bold text-xs md:text-sm px-3 py-1 rounded-full mb-3 md:mb-4 self-start">12 מתכונים</div>
+            <p class="text-brand-muted text-base md:text-lg leading-relaxed balance-text">
+              לחמים, לחמניות, פיצות, קרקרים ומאפים מלוחים בגרסה בריאה וטעימה.
+            </p>
+          </div>
+        </div>
 
-<!-- מקטע 8 - סגירה -->
-<section class="section fade-in text-center">
-  <h2 style="font-size: 28px; line-height: 1.4; margin-bottom: 32px;">
-    אם גם לך חשוב להכין אוכל טעים,<br>
-    בלי גלוטן ובלי סוכר,<br>
-    בלי להתחיל לחפש מתכונים בכל פעם מחדש —<br>
-    <span style="color: var(--accent-gold);">הספר מחכה לך.</span>
-  </h2>
-  
-  <div class="offer-card" style="margin-top: 0; padding-top: 48px;">
-    <div class="price" style="margin-top: 0;">47 <span>₪ בלבד</span></div>
-    
-    <div class="story-text" style="font-size: 20px; margin-bottom: 32px; border:none; padding:0;">
-      <p style="margin-bottom: 4px;">גישה מיידית.</p>
-      <p style="margin-bottom: 4px;">ללא מנוי.</p>
-      <p style="margin-bottom: 4px;">ללא התחייבות.</p>
-      <p class="font-bold" style="color: var(--primary-green);">הספר שלך לתמיד.</p>
+        <!-- Category 2: Mains (Image 6) -->
+        <div class="category-card bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-card border border-brand-border/60 flex flex-col">
+          <img src="6.png" class="w-full aspect-video md:aspect-[4/3] object-cover bg-brand-greenLight/10" alt="קולאז' ארוחות עיקריות">
+          <div class="p-6 md:p-8 flex-grow flex flex-col">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Cooking Pot Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>
+              <h3 class="text-xl md:text-2xl font-bold text-brand-green">ארוחות עיקריות</h3>
+            </div>
+            <div class="inline-block bg-brand-gold/10 text-brand-gold font-bold text-xs md:text-sm px-3 py-1 rounded-full mb-3 md:mb-4 self-start">11 מתכונים</div>
+            <p class="text-brand-muted text-base md:text-lg leading-relaxed balance-text">
+              פשטידות, קציצות, תבשילים ועוד רעיונות לארוחות פשוטות וטעימות לכל המשפחה.
+            </p>
+          </div>
+        </div>
+
+        <!-- Category 3: Tofu (Image 7) -->
+        <div class="category-card bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-card border border-brand-border/60 flex flex-col">
+          <img src="7.png" class="w-full aspect-video md:aspect-[4/3] object-cover bg-brand-greenLight/10" alt="קולאז' מתכוני טופו">
+          <div class="p-6 md:p-8 flex-grow flex flex-col">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Leaf Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              <h3 class="text-xl md:text-2xl font-bold text-brand-green">מתכונים עם טופו</h3>
+            </div>
+            <div class="inline-block bg-brand-gold/10 text-brand-gold font-bold text-xs md:text-sm px-3 py-1 rounded-full mb-3 md:mb-4 self-start">10 מתכונים</div>
+            <p class="text-brand-muted text-base md:text-lg leading-relaxed balance-text">
+              מבחר רעיונות טעימים ומגוונים למי שאוהבת לשלב טופו בתפריט.
+            </p>
+          </div>
+        </div>
+
+        <!-- Category 4: Holidays (Image 8) - Now sitting next to Tofu on Desktop -->
+        <div class="category-card bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-card border border-brand-border/60 flex flex-col">
+          <img src="8.png" class="w-full aspect-video md:aspect-[4/3] object-cover bg-brand-greenLight/10" alt="קולאז' מתכוני שבת וחגים">
+          <div class="p-6 md:p-8 flex-grow flex flex-col">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Sparkles/Star Icon for Holidays -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <h3 class="text-xl md:text-2xl font-bold text-brand-green">שבת וחגים</h3>
+            </div>
+            <div class="inline-block bg-brand-gold/10 text-brand-gold font-bold text-xs md:text-sm px-3 py-1 rounded-full mb-3 md:mb-4 self-start">15 מתכונים</div>
+            <p class="text-brand-muted text-base md:text-lg leading-relaxed balance-text">
+              מתכונים חגיגיים שמתאימים לאירוח, לשבת ולחגים.
+            </p>
+          </div>
+        </div>
+
+        <!-- Category 5: Desserts (Image 9) - Spans across bottom -->
+        <div class="category-card bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-card border-2 border-brand-gold/30 flex flex-col md:col-span-2 relative">
+          <div class="absolute top-0 right-0 bg-brand-gold text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-10 shadow-md">הפרק הגדול ביותר</div>
+          <img src="9.png" class="w-full h-48 md:h-64 lg:h-80 object-cover bg-brand-greenLight/10" alt="קולאז' קינוחים ועוגות">
+          <div class="p-6 md:p-8 flex-grow flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Cake Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2 1 2 1"/><path d="M2 21h20"/><path d="M7 8v2"/><path d="M12 8v2"/><path d="M17 8v2"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></svg>
+              <h3 class="text-2xl md:text-3xl font-bold text-brand-green">עוגות וקינוחים</h3>
+            </div>
+            <div class="inline-block bg-brand-gold/15 text-brand-gold font-black text-sm md:text-base px-4 py-1.5 rounded-full mb-4 self-start">34 מתכונים</div>
+            <p class="text-brand-muted text-lg md:text-xl leading-relaxed balance-text">
+              עוגות, עוגיות, קינוחים ונשנושים ללא גלוטן וללא סוכר.
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <div style="font-size: 16px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4;">
-      פחות מעלות של קפה ועוגה בבית קפה.<br>
-      ספר מתכונים שישאר אצלך לתמיד.
+  <section class="hero-bg py-16 md:py-24 px-4 text-white">
+    <div class="max-w-5xl mx-auto relative z-10">
+
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-10 md:mb-16 max-w-3xl mx-auto leading-tight balance-text">
+        כל המתכונים שראית כאן מחכים לך בתוך הספר
+      </h2>
+
+      <div class="glass-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-2xl border border-brand-gold/30 flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+        
+        <!-- Product Image (Image 10) - Sized to naturally support an 800x600 structure -->
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="10.png" 
+               class="w-full h-auto drop-shadow-2xl hover:-translate-y-1 transition duration-500 rounded-3xl" 
+               alt="המטבח הבריא שלי בטלפון נייד">
+        </div>
+
+        <!-- Product Details & Pricing -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-right">
+          <h3 class="text-2xl md:text-4xl font-black text-brand-green mb-1 md:mb-2">המטבח הבריא שלי</h3>
+          <div class="text-brand-gold font-bold text-base md:text-lg mb-4 tracking-wide uppercase">מהדורה דיגיטלית</div>
+          
+          <p class="text-base md:text-lg text-brand-muted mb-6 md:mb-8 leading-relaxed font-medium balance-text">
+            82 מתכונים ללא גלוטן וללא סוכר<br>
+            <span class="text-brand-green font-normal">נשלח מיד למייל לאחר הרכישה.</span>
+          </p>
+
+          <div class="space-y-2 mb-6 md:mb-8 w-full bg-brand-cream border-2 border-brand-gold/20 p-5 md:p-8 rounded-2xl md:rounded-3xl relative overflow-hidden">
+            <!-- Decorative element -->
+            <div class="absolute -top-4 -right-4 w-16 h-16 bg-brand-gold/10 rounded-full blur-xl"></div>
+            
+            <div class="flex items-center justify-center md:justify-start gap-3">
+              <p class="text-base md:text-lg text-brand-muted">המחיר הרגיל</p>
+              <p class="text-lg md:text-xl line-through text-brand-muted/70 font-medium">69 ₪</p>
+            </div>
+            
+            <p class="text-lg md:text-xl text-brand-green font-bold pt-1 md:pt-2">אבל בגלל שהורדת עכשיו את החוברת</p>
+            
+            <div class="text-6xl md:text-8xl font-black text-brand-green leading-none py-2 tracking-tight">
+              47 <span class="text-3xl md:text-5xl font-bold">₪</span>
+              <span class="block text-lg md:text-xl font-medium text-brand-gold mt-1 tracking-normal">בלבד</span>
+            </div>
+          </div>
+
+          <!-- Updated Payment Link -->
+          <a href="https://private.invoice4u.co.il/newsite/he/clearing/public/i4u-clearing?ProductGuid=3927bf48-96d7-444d-bca5-13d760660bb5" class="btn-primary w-full inline-flex items-center justify-center gap-3 text-xl md:text-2xl font-bold py-4 md:py-5 px-6 md:px-10 rounded-full shadow-gold hover:shadow-gold-hover mb-6 relative overflow-hidden group">
+            <span class="relative z-10">אני רוצה את הספר עכשיו</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 transform group-hover:-translate-x-2 transition-transform"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <!-- Button shine effect -->
+            <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] skew-x-12"></div>
+          </a>
+
+          <p class="text-brand-dark/80 text-sm md:text-base mb-6 md:mb-8 italic balance-text px-2 md:px-0">
+            82 מתכונים שכבר נמצאים במטבחים של מאות נשים.<br class="hidden md:block">
+            אני בטוחה שגם את תמצאי שם מתכונים שתכיני שוב ושוב.
+          </p>
+
+          <!-- Trust Badges -->
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-xs md:text-sm font-medium text-brand-muted border-t border-brand-border pt-6 w-full">
+            <div class="flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              תשלום מאובטח
+            </div>
+            <span class="hidden sm:inline text-brand-gold/40">|</span>
+            <div class="flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+              גישה מיידית
+            </div>
+            <span class="hidden sm:inline text-brand-gold/40">|</span>
+            <div class="flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              צפייה בטלפון, בטאבלט ומחשב
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    
-    <a href="#checkout" class="btn-primary">
-      אני רוצה את הספר
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-    </a>
-  </div>
-</section>
+  </section>
 
-<script>
-  // Scroll fade-in animation observer
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  <footer class="text-center py-6 md:py-8 text-brand-muted text-xs md:text-sm bg-brand-cream border-t border-brand-border/40 font-medium">
+    © כל הזכויות שמורות למטבח הבריא שלי
+  </footer>
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
